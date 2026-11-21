@@ -1,0 +1,16 @@
+# Business files created or supplied during local onboarding.
+/brand.md
+/brand.html
+/brand/
+/brand-intake/
+/intake/
+
+# Local settings and credentials.
+/.codex/
+.env
+.env.*
+*.key
+*.pem
+
+# Operating system metadata.
+.DS_Store

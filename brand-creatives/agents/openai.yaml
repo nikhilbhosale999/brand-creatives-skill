@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Creatives"
+  short_description: "Onboard a brand and create on-brand artwork"
+  default_prompt: "Use $brand-creatives to onboard this business or create artwork from its project brand kit."
