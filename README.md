@@ -2,17 +2,26 @@
 
 Install one skill in each business project. Onboard the brand once, then use short briefs to create posters, ads, flyers, pamphlets, invitations and social graphics. Each project keeps its own guide, palette, assets and designs.
 
-## Install in a project
+## Install from GitHub
 
-Clone or download this repository. Copy the entire `brand-creatives` directory to `.agents/skills/` in the project you open in Codex, then copy `LICENSE` into the installed directory.
+From the root of the business project you want to use in Codex, run this in a terminal with Git installed. The command works in macOS, Linux, and Git Bash on Windows.
 
 ```sh
-mkdir -p .agents/skills
-cp -R "/path/to/brand-creatives-skill/brand-creatives" .agents/skills/
-cp "/path/to/brand-creatives-skill/LICENSE" .agents/skills/brand-creatives/
+(
+  set -eu
+  brand_skill_tmp="$(mktemp -d)"
+  trap 'rm -rf "$brand_skill_tmp"' EXIT
+
+  git clone --depth 1 https://github.com/nikhilbhosale999/brand-creatives-skill.git "$brand_skill_tmp/repo"
+  mkdir -p .agents/skills/brand-creatives
+  cp -R "$brand_skill_tmp/repo/brand-creatives/." .agents/skills/brand-creatives/
+  cp "$brand_skill_tmp/repo/LICENSE" .agents/skills/brand-creatives/
+)
 ```
 
-Run those commands from the business project root. The resulting entry point is `.agents/skills/brand-creatives/SKILL.md`. Open that project in Codex and invoke `$brand-creatives`. If the skill does not appear, reopen Codex in the project. See [Codex skill discovery](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
+You can also [download the ZIP](https://github.com/nikhilbhosale999/brand-creatives-skill/archive/refs/heads/main.zip). Extract it, copy the `brand-creatives` folder into your project's `.agents/skills/` directory, and copy `LICENSE` into the installed folder.
+
+Open the project in Codex and invoke `$brand-creatives`. Codex discovers it at `.agents/skills/brand-creatives/SKILL.md`. If the skill does not appear, reopen the project. See the [Codex skill discovery guide](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
 
 ## Onboard the business
 
